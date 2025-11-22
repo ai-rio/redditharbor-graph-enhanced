@@ -1,0 +1,58 @@
+{
+  "table": "market_validations_backup_20251118_074344",
+  "backup_timestamp": "20251118_094716",
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "opportunity_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "validation_type",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "validation_source",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "validation_date",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "validation_result",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "confidence_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "notes",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "status",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "evidence_url",
+      "data_type": "text",
+      "is_nullable": "YES"
+    }
+  ],
+  "data": [],
+  "row_count": 0
+}

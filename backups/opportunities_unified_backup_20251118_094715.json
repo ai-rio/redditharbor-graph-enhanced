@@ -1,0 +1,133 @@
+{
+  "table": "opportunities_unified",
+  "backup_timestamp": "20251118_094715",
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "NO"
+    },
+    {
+      "column_name": "submission_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "column_name": "problem_statement",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "target_audience",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "app_concept",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "core_functions",
+      "data_type": "jsonb",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "value_proposition",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "target_user",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "monetization_model",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "trust_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "trust_badge",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "trust_level",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "activity_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "engagement_level",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "trend_velocity",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "problem_validity",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "discussion_quality",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "ai_confidence_level",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "opportunity_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "dimension_scores",
+      "data_type": "jsonb",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "opportunity_assessment_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "status",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    }
+  ],
+  "data": [],
+  "row_count": 0
+}

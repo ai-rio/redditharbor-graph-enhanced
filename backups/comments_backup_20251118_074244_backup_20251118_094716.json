@@ -1,0 +1,103 @@
+{
+  "table": "comments_backup_20251118_074244",
+  "backup_timestamp": "20251118_094716",
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "submission_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "redditor_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "parent_comment_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "content",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "content_raw",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "upvotes",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "sentiment_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "workaround_mentions",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "comment_depth",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "link_id",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "comment_id",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "body",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "subreddit",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "parent_id",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "score",
+      "data_type": "jsonb",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "edited",
+      "data_type": "boolean",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "removed",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    }
+  ],
+  "data": [],
+  "row_count": 0
+}

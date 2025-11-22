@@ -1,0 +1,152 @@
+{
+  "test_name": "test_01_single_submission_ultra_fast",
+  "start_time": "2025-11-20T12:25:51.361918",
+  "end_time": "2025-11-20T12:26:59.228599",
+  "total_time": 67.866681,
+  "submissions_total": 1,
+  "submissions_success": 0,
+  "submissions_partial": 0,
+  "submissions_failed": 1,
+  "success_rate": 0.0,
+  "avg_time_per_submission": 62.815064430236816,
+  "throughput": 0.8840862572902306,
+  "peak_memory_mb": 0.0,
+  "total_cost": 0.07500000000000001,
+  "avg_cost_per_submission": 0.07500000000000001,
+  "cost_by_service": {
+    "profiler": 0.005,
+    "opportunity": 0.0,
+    "monetization": 0.02,
+    "trust": 0.0,
+    "market_validation": 0.05
+  },
+  "avg_field_coverage": 86.20689655172413,
+  "fields_coverage_detail": {
+    "opportunity_score": 100.0,
+    "final_score": 100.0,
+    "dimension_scores": 100.0,
+    "priority": 100.0,
+    "core_functions": 100.0,
+    "problem_description": 100.0,
+    "profession": 100.0,
+    "ai_profile": 100.0,
+    "evidence_based": 100.0,
+    "confidence": 100.0,
+    "monetization_score": 100.0,
+    "willingness_to_pay_score": 100.0,
+    "customer_segment": 100.0,
+    "price_sensitivity_score": 100.0,
+    "revenue_potential_score": 100.0,
+    "trust_level": 100.0,
+    "overall_trust_score": 100.0,
+    "activity_validation_score": 100.0,
+    "problem_authenticity_score": 100.0,
+    "solution_readiness_score": 100.0,
+    "market_validation_score": 100.0,
+    "market_data_quality": 100.0,
+    "competitor_count": 100.0,
+    "similar_launches_count": 100.0,
+    "validation_reasoning": 100.0
+  },
+  "service_success_rates": {
+    "profiler": 100.0,
+    "opportunity": 100.0,
+    "monetization": 100.0,
+    "trust": 100.0,
+    "market_validation": 100.0
+  },
+  "service_avg_times": {
+    "profiler": 0.0,
+    "opportunity": 0.0,
+    "monetization": 0.0,
+    "trust": 0.0,
+    "market_validation": 0.0
+  },
+  "submission_metrics": [
+    {
+      "submission_id": "hybrid_1",
+      "status": "failed",
+      "total_time": 62.815064430236816,
+      "total_cost": 0.07500000000000001,
+      "services_executed": 5,
+      "services_succeeded": 5,
+      "services_failed": 0,
+      "fields_populated": [
+        "opportunity_score",
+        "final_score",
+        "dimension_scores",
+        "priority",
+        "core_functions",
+        "problem_description",
+        "profession",
+        "ai_profile",
+        "evidence_based",
+        "confidence",
+        "monetization_score",
+        "willingness_to_pay_score",
+        "customer_segment",
+        "price_sensitivity_score",
+        "revenue_potential_score",
+        "trust_level",
+        "overall_trust_score",
+        "activity_validation_score",
+        "problem_authenticity_score",
+        "solution_readiness_score",
+        "market_validation_score",
+        "market_data_quality",
+        "competitor_count",
+        "similar_launches_count",
+        "validation_reasoning"
+      ],
+      "field_coverage": 86.20689655172413,
+      "service_metrics": [
+        {
+          "service_name": "profiler",
+          "success": true,
+          "processing_time": 0.0,
+          "cost": 0.005,
+          "tokens": 0,
+          "error": null,
+          "fields_populated": []
+        },
+        {
+          "service_name": "opportunity",
+          "success": true,
+          "processing_time": 0.0,
+          "cost": 0.0,
+          "tokens": 0,
+          "error": null,
+          "fields_populated": []
+        },
+        {
+          "service_name": "monetization",
+          "success": true,
+          "processing_time": 0.0,
+          "cost": 0.02,
+          "tokens": 0,
+          "error": null,
+          "fields_populated": []
+        },
+        {
+          "service_name": "trust",
+          "success": true,
+          "processing_time": 0.0,
+          "cost": 0.0,
+          "tokens": 0,
+          "error": null,
+          "fields_populated": []
+        },
+        {
+          "service_name": "market_validation",
+          "success": true,
+          "processing_time": 0.0,
+          "cost": 0.05,
+          "tokens": 0,
+          "error": null,
+          "fields_populated": []
+        }
+      ],
+      "error": null
+    }
+  ]
+}

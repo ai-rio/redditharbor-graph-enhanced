@@ -1,0 +1,103 @@
+{
+  "table": "app_opportunities_backup_20251118_074344",
+  "backup_timestamp": "20251118_094716",
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "submission_id",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "problem_description",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "app_concept",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "core_functions",
+      "data_type": "jsonb",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "value_proposition",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "target_user",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "monetization_model",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "opportunity_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "subreddit",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "reddit_score",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "num_comments",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "analyzed_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "status",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "notes",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "_dlt_load_id",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "_dlt_id",
+      "data_type": "text",
+      "is_nullable": "YES"
+    }
+  ],
+  "data": [],
+  "row_count": 0
+}

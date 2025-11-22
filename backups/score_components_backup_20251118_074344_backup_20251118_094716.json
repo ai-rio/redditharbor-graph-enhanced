@@ -1,0 +1,48 @@
+{
+  "table": "score_components_backup_20251118_074344",
+  "backup_timestamp": "20251118_094716",
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "opportunity_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "metric_name",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "metric_value",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "evidence_text",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "confidence_level",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "source_submission_ids",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "calculated_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    }
+  ],
+  "data": [],
+  "row_count": 0
+}

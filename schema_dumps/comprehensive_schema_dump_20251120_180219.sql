@@ -1,0 +1,468 @@
+-- RedditHarbor Comprehensive Database Dump
+-- Generated: 2025-11-20T18:02:19.325449
+-- Focus: UUID format analysis for deduplication system
+-- Tables: 8
+
+-- ==========================================================
+-- Table Analysis: business_concepts
+-- ==========================================================
+
+-- Table: business_concepts
+-- Total Records: 44
+-- Columns (18):
+--   - id: int = 19
+--   - concept_name: str = app: food delivery service for local restaurant...
+--   - concept_fingerprint: str = 4a06f3b2c47ac5df11187c1739674ea0eafce1af019a7fc...
+--   - embedding: NoneType = None
+--   - first_seen_at: str = 2025-11-19T01:55:10.08527+00:00
+--   - last_updated_at: str = 2025-11-19T01:55:10.08527+00:00
+--   - submission_count: int = 1
+--   - primary_opportunity_id: str = c501de6f-c319-5339-b262-dfd1329a1487
+--   - metadata: dict = {}
+--   - created_at: str = 2025-11-19T01:55:10.08527+00:00
+--   - has_agno_analysis: bool = False
+--   - agno_analysis_count: int = 0
+--   - last_agno_analysis_at: NoneType = None
+--   - agno_avg_wtp_score: NoneType = None
+--   - has_ai_profile: bool = False
+--   - ai_profile_count: int = 0
+--   - last_ai_profile_at: NoneType = None
+--   - has_profiler_analysis: bool = False
+
+-- Sample Records:
+-- Record 1:
+--     id: 19
+--     concept_name: app: food delivery service for local restaurants with real-time tracking
+--     concept_fingerprint: 4a06f3b2c47ac5df11187c1739674ea0eafce1af019a7fc57a60b92c11acfff9
+--     embedding: None
+--     first_seen_at: 2025-11-19T01:55:10.08527+00:00
+--     last_updated_at: 2025-11-19T01:55:10.08527+00:00
+--     submission_count: 1
+--   ✅ primary_opportunity_id: c501de6f-c319-5339-b262-dfd1329a1487
+--     metadata: {}
+--     created_at: 2025-11-19T01:55:10.08527+00:00
+--     has_agno_analysis: False
+--     agno_analysis_count: 0
+--     last_agno_analysis_at: None
+--     agno_avg_wtp_score: None
+--     has_ai_profile: False
+--     ai_profile_count: 0
+--     last_ai_profile_at: None
+--     has_profiler_analysis: False
+
+-- Record 2:
+--     id: 20
+--     concept_name: task management app with ai-powered prioritization
+--     concept_fingerprint: 99641911ded3a6174a205b7dd7717236b7961958045ee66c9f35f8a2ae9104b6
+--     embedding: None
+--     first_seen_at: 2025-11-19T01:55:10.118996+00:00
+--     last_updated_at: 2025-11-19T01:55:10.118996+00:00
+--     submission_count: 1
+--   ✅ primary_opportunity_id: 8ebdfc78-d614-5176-85a9-410a47f9458f
+--     metadata: {}
+--     created_at: 2025-11-19T01:55:10.118996+00:00
+--     has_agno_analysis: False
+--     agno_analysis_count: 0
+--     last_agno_analysis_at: None
+--     agno_avg_wtp_score: None
+--     has_ai_profile: False
+--     ai_profile_count: 0
+--     last_ai_profile_at: None
+--     has_profiler_analysis: False
+
+-- Record 3:
+--     id: 21
+--     concept_name: task management system with artificial intelligence prioritization
+--     concept_fingerprint: ae1618dd3a0dd20cecd99a0d5c1c6ef2c6c614db7f3dc9a5d50710ddc94db911
+--     embedding: None
+--     first_seen_at: 2025-11-19T01:55:10.15616+00:00
+--     last_updated_at: 2025-11-19T01:55:10.15616+00:00
+--     submission_count: 1
+--   ✅ primary_opportunity_id: 6024cdd3-8889-50af-95be-b7a22a44becb
+--     metadata: {}
+--     created_at: 2025-11-19T01:55:10.15616+00:00
+--     has_agno_analysis: False
+--     agno_analysis_count: 0
+--     last_agno_analysis_at: None
+--     agno_avg_wtp_score: None
+--     has_ai_profile: False
+--     ai_profile_count: 0
+--     last_ai_profile_at: None
+--     has_profiler_analysis: False
+
+-- Record 4:
+--     id: 7
+--     concept_name: ai-powered personal finance advisor that helps users save money (unique test 1763517174)
+--     concept_fingerprint: 58c211f4945fd7a800235d3fff9f3df5e2777c3ccd7c594579ebc6c573cff8c8
+--     embedding: None
+--     first_seen_at: 2025-11-19T01:52:54.4352+00:00
+--     last_updated_at: 2025-11-19T01:52:54.4352+00:00
+--     submission_count: 1
+--   ✅ primary_opportunity_id: 256b8055-662b-58ac-a089-10e7fad3b688
+--     metadata: {}
+--     created_at: 2025-11-19T01:52:54.4352+00:00
+--     has_agno_analysis: False
+--     agno_analysis_count: 0
+--     last_agno_analysis_at: None
+--     agno_avg_wtp_score: None
+--     has_ai_profile: False
+--     ai_profile_count: 0
+--     last_ai_profile_at: None
+--     has_profiler_analysis: False
+
+-- Record 5:
+--     id: 6
+--     concept_name: ai-powered personal finance advisor that helps users save money
+--     concept_fingerprint: eab5255ac920b421cb6c115d548d1c5ae642886a7f4bee2cb8c0d3a94a024bb9
+--     embedding: None
+--     first_seen_at: 2025-11-19T01:51:54.554471+00:00
+--     last_updated_at: 2025-11-19T11:05:33.595825+00:00
+--     submission_count: 21
+--   ✅ primary_opportunity_id: 5db4630b-3e6e-5ae4-a8a8-f326adcb5172
+--     metadata: {}
+--     created_at: 2025-11-19T01:51:54.554471+00:00
+--     has_agno_analysis: False
+--     agno_analysis_count: 0
+--     last_agno_analysis_at: None
+--     agno_avg_wtp_score: None
+--     has_ai_profile: False
+--     ai_profile_count: 0
+--     last_ai_profile_at: None
+--     has_profiler_analysis: False
+
+-- UUID Field Analysis:
+--   ✅ id: UUID format looks valid
+--   ❌ concept_name: Found 10 invalid UUIDs: ['app: food delivery service for local restaurants with real-time tracking', 'task management app with ai-powered prioritization', 'task management system with artificial intelligence prioritization']
+--   ❌ concept_fingerprint: Found 10 invalid UUIDs: ['4a06f3b2c47ac5df11187c1739674ea0eafce1af019a7fc57a60b92c11acfff9', '99641911ded3a6174a205b7dd7717236b7961958045ee66c9f35f8a2ae9104b6', 'ae1618dd3a0dd20cecd99a0d5c1c6ef2c6c614db7f3dc9a5d50710ddc94db911']
+--   ✅ primary_opportunity_id: UUID format looks valid
+
+
+-- ==========================================================
+-- Table Analysis: submissions
+-- ==========================================================
+
+-- Table: submissions
+-- Total Records: 10
+-- Columns (23):
+--   - id: str = 968ffcd9-cd0d-4632-b2f2-6553f616b33a
+--   - reddit_id: str = high_quality
+--   - redditor_id: NoneType = None
+--   - subreddit_id: NoneType = None
+--   - title: str = Test
+--   - content: NoneType = None
+--   - url: NoneType = None
+--   - score: int = 0
+--   - num_comments: int = 0
+--   - created_at: str = 2025-11-20T20:09:03.718057+00:00
+--   - updated_at: str = 2025-11-20T20:09:03.718057+00:00
+--   - submission_id: str = high_quality
+--   - selftext: str = Long text content here that meets minimum lengt...
+--   - author: NoneType = None
+--   - subreddit: str = test
+--   - trust_score: NoneType = None
+--   - trust_level: NoneType = None
+--   - market_validation_score: NoneType = None
+--   - opportunity_score: NoneType = None
+--   - created_utc: NoneType = None
+--   - reddit_score: NoneType = None
+--   - _dlt_load_id: str = 1763669343.2474842
+--   - _dlt_id: str = Fk8MT1jureRcQw
+
+-- Sample Records:
+-- Record 1:
+--   ✅ id: 968ffcd9-cd0d-4632-b2f2-6553f616b33a
+--   ❌ reddit_id: high_quality (INVALID UUID FORMAT!)
+--     redditor_id: None
+--     subreddit_id: None
+--     title: Test
+--     content: None
+--     url: None
+--     score: 0
+--     num_comments: 0
+--     created_at: 2025-11-20T20:09:03.718057+00:00
+--     updated_at: 2025-11-20T20:09:03.718057+00:00
+--   ❌ submission_id: high_quality (INVALID UUID FORMAT!)
+--     selftext: Long text content here that meets minimum length requirements
+--     author: None
+--     subreddit: test
+--     trust_score: None
+--     trust_level: None
+--     market_validation_score: None
+--     opportunity_score: None
+--     created_utc: None
+--     reddit_score: None
+--   ❌ _dlt_load_id: 1763669343.2474842 (INVALID UUID FORMAT!)
+--   ❌ _dlt_id: Fk8MT1jureRcQw (INVALID UUID FORMAT!)
+
+-- Record 2:
+--   ✅ id: 91fbade8-0e6d-4d84-9497-81d59a3ae77d
+--   ❌ reddit_id: sub1 (INVALID UUID FORMAT!)
+--     redditor_id: None
+--     subreddit_id: None
+--     title: Test 1
+--     content: None
+--     url: None
+--     score: 0
+--     num_comments: 0
+--     created_at: 2025-11-20T20:09:12.87055+00:00
+--     updated_at: 2025-11-20T20:09:12.87055+00:00
+--   ❌ submission_id: sub1 (INVALID UUID FORMAT!)
+--     selftext: None
+--     author: None
+--     subreddit: test
+--     trust_score: None
+--     trust_level: None
+--     market_validation_score: None
+--     opportunity_score: None
+--     created_utc: None
+--     reddit_score: None
+--   ❌ _dlt_load_id: 1763669352.340149 (INVALID UUID FORMAT!)
+--   ❌ _dlt_id: KppUvG4+YjBs3w (INVALID UUID FORMAT!)
+
+-- Record 3:
+--   ✅ id: 45f27b3a-c35a-4fc0-960c-db46fb39266b
+--   ❌ reddit_id: sub2 (INVALID UUID FORMAT!)
+--     redditor_id: None
+--     subreddit_id: None
+--     title: Test 2
+--     content: None
+--     url: None
+--     score: 0
+--     num_comments: 0
+--     created_at: 2025-11-20T20:09:12.87055+00:00
+--     updated_at: 2025-11-20T20:09:12.87055+00:00
+--   ❌ submission_id: sub2 (INVALID UUID FORMAT!)
+--     selftext: None
+--     author: None
+--     subreddit: test
+--     trust_score: None
+--     trust_level: None
+--     market_validation_score: None
+--     opportunity_score: None
+--     created_utc: None
+--     reddit_score: None
+--   ❌ _dlt_load_id: 1763669352.340149 (INVALID UUID FORMAT!)
+--   ❌ _dlt_id: HvvP3xo3SqBiXA (INVALID UUID FORMAT!)
+
+-- Record 4:
+--   ✅ id: 1bce9f73-3153-46c7-9b6a-03286b977baa
+--   ❌ reddit_id: sub3 (INVALID UUID FORMAT!)
+--     redditor_id: None
+--     subreddit_id: None
+--     title: Test 3
+--     content: None
+--     url: None
+--     score: 0
+--     num_comments: 0
+--     created_at: 2025-11-20T20:09:12.87055+00:00
+--     updated_at: 2025-11-20T20:09:12.87055+00:00
+--   ❌ submission_id: sub3 (INVALID UUID FORMAT!)
+--     selftext: None
+--     author: None
+--     subreddit: test
+--     trust_score: None
+--     trust_level: None
+--     market_validation_score: None
+--     opportunity_score: None
+--     created_utc: None
+--     reddit_score: None
+--   ❌ _dlt_load_id: 1763669352.340149 (INVALID UUID FORMAT!)
+--   ❌ _dlt_id: eEH+rmnNg5FJvQ (INVALID UUID FORMAT!)
+
+-- Record 5:
+--   ✅ id: 71bb040b-fe11-46c7-992b-ddf0eefc568c
+--   ❌ reddit_id: test1 (INVALID UUID FORMAT!)
+--     redditor_id: None
+--     subreddit_id: None
+--     title: Test
+--     content: None
+--     url: None
+--     score: 0
+--     num_comments: 0
+--     created_at: 2025-11-20T20:09:15.588399+00:00
+--     updated_at: 2025-11-20T20:09:15.588399+00:00
+--   ❌ submission_id: test1 (INVALID UUID FORMAT!)
+--     selftext: None
+--     author: None
+--     subreddit: test
+--     trust_score: None
+--     trust_level: None
+--     market_validation_score: None
+--     opportunity_score: None
+--     created_utc: None
+--     reddit_score: None
+--   ❌ _dlt_load_id: 1763669354.7861443 (INVALID UUID FORMAT!)
+--   ❌ _dlt_id: wpTL01H24q+6wA (INVALID UUID FORMAT!)
+
+-- UUID Field Analysis:
+--   ✅ id: UUID format looks valid
+--   ❌ reddit_id: Found 10 invalid UUIDs: ['high_quality', 'sub1', 'sub2']
+--   ✅ redditor_id: UUID format looks valid
+--   ✅ subreddit_id: UUID format looks valid
+--   ❌ submission_id: Found 10 invalid UUIDs: ['high_quality', 'sub1', 'sub2']
+--   ✅ market_validation_score: UUID format looks valid
+--   ❌ _dlt_load_id: Found 10 invalid UUIDs: ['1763669343.2474842', '1763669352.340149', '1763669352.340149']
+--   ❌ _dlt_id: Found 10 invalid UUIDs: ['Fk8MT1jureRcQw', 'KppUvG4+YjBs3w', 'HvvP3xo3SqBiXA']
+
+
+-- ==========================================================
+-- Table Analysis: opportunities_unified
+-- ==========================================================
+
+-- Table: opportunities_unified
+-- Total Records: 488
+-- Columns (16):
+--   - id: str = 32983e5b-e5ce-5bce-8e47-622ca8eb65bb
+--   - title: str = Test Opportunity 32983e5b
+--   - app_concept: str = Test concept for deduplication
+--   - description: NoneType = None
+--   - problem_statement: NoneType = None
+--   - target_audience: NoneType = None
+--   - submission_id: NoneType = None
+--   - business_concept_id: int = 23
+--   - semantic_fingerprint: str = 5edabcf35134721400bc137d5272df7bfc56b905dbc2730...
+--   - is_duplicate: bool = True
+--   - duplicate_of_id: str = 32983e5b-e5ce-5bce-8e47-622ca8eb65bb
+--   - metadata: dict = {}
+--   - created_at: str = 2025-11-18T23:10:59+00:00
+--   - updated_at: str = 2025-11-19T02:18:36.774744+00:00
+--   - copied_from_primary: bool = False
+--   - primary_opportunity_id: NoneType = None
+
+-- Sample Records:
+-- Record 1:
+--   ✅ id: 32983e5b-e5ce-5bce-8e47-622ca8eb65bb
+--     title: Test Opportunity 32983e5b
+--     app_concept: Test concept for deduplication
+--     description: None
+--     problem_statement: None
+--     target_audience: None
+--     submission_id: None
+--     business_concept_id: 23
+--     semantic_fingerprint: 5edabcf35134721400bc137d5272df7bfc56b905dbc2730cd512017ec3178027
+--     is_duplicate: True
+--   ✅ duplicate_of_id: 32983e5b-e5ce-5bce-8e47-622ca8eb65bb
+--     metadata: {}
+--     created_at: 2025-11-18T23:10:59+00:00
+--     updated_at: 2025-11-19T02:18:36.774744+00:00
+--     copied_from_primary: False
+--     primary_opportunity_id: None
+
+-- Record 2:
+--   ✅ id: 414e204d-2666-5bc8-b094-3b399afa3329
+--     title: Test Opportunity 414e204d
+--     app_concept: Test concept for deduplication
+--     description: None
+--     problem_statement: None
+--     target_audience: None
+--     submission_id: None
+--     business_concept_id: 35
+--     semantic_fingerprint: b0d12475c010c3533eb031d7069b0561da7a5d6d7ac3ac8eb5936c72ba80f6cd
+--     is_duplicate: True
+--   ✅ duplicate_of_id: 67021ab5-63ff-5e4d-8e4b-2d3b549febc8
+--     metadata: {}
+--     created_at: 2025-11-18T23:18:37+00:00
+--     updated_at: 2025-11-19T02:18:37.662519+00:00
+--     copied_from_primary: False
+--     primary_opportunity_id: None
+
+-- Record 3:
+--   ✅ id: d787ea12-0360-5242-9544-daac119b569f
+--     title: Test Opportunity d787ea12
+--     app_concept: Test concept for deduplication
+--     description: None
+--     problem_statement: None
+--     target_audience: None
+--     submission_id: None
+--     business_concept_id: 32
+--     semantic_fingerprint: 8f7187735c5cf96d80c80288be5faf1884a338dc43edefdec918166de77e792f
+--     is_duplicate: True
+--   ✅ duplicate_of_id: 616f455b-2f7e-5d44-96b4-71d2d6679abd
+--     metadata: {}
+--     created_at: 2025-11-18T23:18:39+00:00
+--     updated_at: 2025-11-19T02:18:39.236249+00:00
+--     copied_from_primary: False
+--     primary_opportunity_id: None
+
+-- Record 4:
+--   ✅ id: d6e2cce4-c1bd-5039-a926-cbf268c8daa0
+--     title: Test Opportunity d6e2cce4
+--     app_concept: Test concept for deduplication
+--     description: None
+--     problem_statement: None
+--     target_audience: None
+--     submission_id: None
+--     business_concept_id: 33
+--     semantic_fingerprint: 444a7bb08c3903b9fa1efca3dfaffb853e6b3f2824c5ef9ed442ee241391b079
+--     is_duplicate: True
+--   ✅ duplicate_of_id: c142d9c2-7fc3-5238-aaff-6ec1087ef0bd
+--     metadata: {}
+--     created_at: 2025-11-18T23:18:39+00:00
+--     updated_at: 2025-11-19T02:18:39.269814+00:00
+--     copied_from_primary: False
+--     primary_opportunity_id: None
+
+-- Record 5:
+--   ✅ id: 0970e71b-42be-5d69-a751-ee042a260625
+--     title: Test Opportunity 0970e71b
+--     app_concept: Test concept for deduplication
+--     description: None
+--     problem_statement: None
+--     target_audience: None
+--     submission_id: None
+--     business_concept_id: 34
+--     semantic_fingerprint: 10c174ef78ec7c614257abb0f1edc0d9c27166890007d55361b581498b56ba3b
+--     is_duplicate: True
+--   ✅ duplicate_of_id: cfce8367-8c37-52ca-8b0c-d4a939419631
+--     metadata: {}
+--     created_at: 2025-11-18T23:18:39+00:00
+--     updated_at: 2025-11-19T02:18:39.301501+00:00
+--     copied_from_primary: False
+--     primary_opportunity_id: None
+
+-- UUID Field Analysis:
+--   ✅ id: UUID format looks valid
+--   ❌ app_concept: Found 10 invalid UUIDs: ['Test concept for deduplication', 'Test concept for deduplication', 'Test concept for deduplication']
+--   ✅ submission_id: UUID format looks valid
+--   ✅ business_concept_id: UUID format looks valid
+--   ✅ duplicate_of_id: UUID format looks valid
+--   ✅ primary_opportunity_id: UUID format looks valid
+
+
+-- ==========================================================
+-- Table Analysis: app_opportunities
+-- ==========================================================
+
+-- Error accessing table: {'message': 'column app_opportunities.id does not exist', 'code': '42703', 'hint': None, 'details': None}
+
+
+-- ==========================================================
+-- Table Analysis: workflow_results
+-- ==========================================================
+
+-- Table: workflow_results
+-- Total Records: 0
+-- Table is empty
+
+
+-- ==========================================================
+-- Table Analysis: redditor
+-- ==========================================================
+
+-- Error accessing table: {'message': "Could not find the table 'public.redditor' in the schema cache", 'code': 'PGRST205', 'hint': "Perhaps you meant the table 'public.redditors'", 'details': None}
+
+
+-- ==========================================================
+-- Table Analysis: comment
+-- ==========================================================
+
+-- Error accessing table: {'message': "Could not find the table 'public.comment' in the schema cache", 'code': 'PGRST205', 'hint': "Perhaps you meant the table 'public.comments'", 'details': None}
+
+
+-- ==========================================================
+-- Table Analysis: submission
+-- ==========================================================
+
+-- Error accessing table: {'message': "Could not find the table 'public.submission' in the schema cache", 'code': 'PGRST205', 'hint': "Perhaps you meant the table 'public.submissions'", 'details': None}
+
+

@@ -1,0 +1,29 @@
+{
+  "test_name": "test_01_single_submission",
+  "timestamp": "2025-11-20_23-28-03",
+  "total_calls": 2,
+  "total_cost": 0.055,
+  "total_tokens": 0,
+  "calls": [
+    {
+      "timestamp": "2025-11-20T23:28:03.014672",
+      "service_name": "profiler",
+      "model": "anthropic/claude-3-haiku",
+      "cost": 0.005,
+      "latency": 0.0,
+      "tokens": 0,
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2025-11-20T23:28:03.014786",
+      "service_name": "market_validation",
+      "model": "unknown",
+      "cost": 0.05,
+      "latency": 0.0,
+      "tokens": 0,
+      "success": true,
+      "error": null
+    }
+  ]
+}

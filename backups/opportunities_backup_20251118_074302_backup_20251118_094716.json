@@ -1,0 +1,83 @@
+{
+  "table": "opportunities_backup_20251118_074302",
+  "backup_timestamp": "20251118_094716",
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "problem_statement",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "identified_from_submission_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "status",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "core_function_count",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "simplicity_constraint_met",
+      "data_type": "boolean",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "proposed_solution",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "target_audience",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "market_segment",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "last_reviewed_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "opportunity_id",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "app_name",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "business_category",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "source_subreddit",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    }
+  ],
+  "data": [],
+  "row_count": 0
+}

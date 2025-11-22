@@ -1,0 +1,68 @@
+{
+  "table": "opportunity_scores_backup_20251118_074302",
+  "backup_timestamp": "20251118_094716",
+  "schema": [
+    {
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "opportunity_id",
+      "data_type": "uuid",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "market_demand_score",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "pain_intensity_score",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "monetization_potential_score",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "market_gap_score",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "technical_feasibility_score",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "simplicity_score",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "total_score",
+      "data_type": "numeric",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "score_date",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "score_version",
+      "data_type": "character varying",
+      "is_nullable": "YES"
+    },
+    {
+      "column_name": "scoring_notes",
+      "data_type": "text",
+      "is_nullable": "YES"
+    }
+  ],
+  "data": [],
+  "row_count": 0
+}

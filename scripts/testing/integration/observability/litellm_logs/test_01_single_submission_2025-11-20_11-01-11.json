@@ -1,0 +1,39 @@
+{
+  "test_name": "test_01_single_submission",
+  "timestamp": "2025-11-20_11-01-11",
+  "total_calls": 3,
+  "total_cost": 0.155,
+  "total_tokens": 0,
+  "calls": [
+    {
+      "timestamp": "2025-11-20T11:01:11.511348",
+      "service_name": "profiler",
+      "model": "anthropic/claude-3-haiku",
+      "cost": 0.005,
+      "latency": 0.0,
+      "tokens": 0,
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2025-11-20T11:01:11.511424",
+      "service_name": "monetization",
+      "model": "openai/gpt-4o-mini",
+      "cost": 0.1,
+      "latency": 0.0,
+      "tokens": 0,
+      "success": true,
+      "error": null
+    },
+    {
+      "timestamp": "2025-11-20T11:01:11.511471",
+      "service_name": "market_validation",
+      "model": "unknown",
+      "cost": 0.05,
+      "latency": 0.0,
+      "tokens": 0,
+      "success": true,
+      "error": null
+    }
+  ]
+}
