@@ -1,50 +1,334 @@
-# RedditHarbor Complete Stack Docker Compose
-# Includes FastAPI backend, Redis, PostgreSQL (Supabase), and Next.js frontend
+# RedditHarbor Graph Enhanced - Complete Docker Stack
+# Includes Deep-Graph-MCP integration, monitoring, and full observability
 
 version: '3.8'
 
 services:
-  # FastAPI Backend
-  api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-    container_name: reddit-harbor-api
+  # Main RedditHarbor Application with Graph Integration
+  redditharbor:
+    build: .
+    container_name: redditharbor-graph-enhanced
     ports:
       - "8000:8000"
     environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - SUPABASE_URL=http://supabase-db:54322
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - REDDIT_USER_AGENT=RedditHarbor/1.0
+      - SUPABASE_URL=${SUPABASE_URL}
       - SUPABASE_KEY=${SUPABASE_KEY}
-      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
-      - REDDIT_PUBLIC=${REDDIT_PUBLIC}
-      - REDDIT_SECRET=${REDDIT_SECRET}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      - DEEP_GRAPH_PROJECT_ID=${DEEP_GRAPH_PROJECT_ID}
+      - DEEP_GRAPH_API_KEY=${DEEP_GRAPH_API_KEY}
+      - DEEP_GRAPH_ENDPOINT=https://api.deepgraph.co
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_URL=${REDIS_URL}
+      - ENVIRONMENT=production
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+      - ENABLE_PII_ANONYMIZATION=true
+      - SECRET_KEY=${SECRET_KEY}
+      - MAX_WORKERS=4
+      - CACHE_TTL=3600
+      - RATE_LIMIT_PER_MINUTE=100
       - JINA_API_KEY=${JINA_API_KEY}
-      - AGENTOPS_API_KEY=${AGENTOPS_API_KEY}
+      - AGNO_API_KEY=${AGNO_API_KEY}
+    volumes:
+      - ./logs:/app/logs
+      - ./backups:/app/backups
+      - ./reports:/app/reports
     depends_on:
       - redis
-      - supabase-db
-    volumes:
-      - ./api:/app
-      - api_uploads:/app/uploads
-      - api_logs:/app/logs
+      - postgres
+      - elasticsearch
     networks:
-      - reddit-harbor-network
+      - redditharbor-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
+      start_period: 40s
+
+  # Deep-Graph-MCP Analysis Service
+  graph-analyzer:
+    build: .
+    container_name: redditharbor-graph-analyzer
+    command: python -c "
+from core.graph_integration import RedditHarborGraphAnalyzer
+from core.graph_integration.dependencies import DependencyMapper
+from core.graph_integration.refactoring import IntelligentRefactorer
+
+# Initialize services
+analyzer = RedditHarborGraphAnalyzer()
+mapper = DependencyMapper()
+refactorer = IntelligentRefactorer()
+
+# Run continuous analysis
+import time
+while True:
+    try:
+        print('🔍 Running graph analysis...')
+
+        # Analyze dependencies
+        graph_summary = mapper.build_dependency_graph()
+        print(f'Nodes: {graph_summary[\"total_nodes\"]}, Edges: {graph_summary[\"total_edges\"]}')
+
+        # Detect circular dependencies
+        circular_deps = mapper.detect_circular_dependencies()
+        if circular_deps:
+            print(f'⚠️ Found {len(circular_deps)} circular dependencies')
+
+        # Generate refactoring opportunities
+        opportunities = analyzer.find_refactoring_opportunities()
+        if opportunities:
+            print(f'💡 Found {len(opportunities)} refactoring opportunities')
+
+        # Visualize dependency graph
+        try:
+            graph_path = mapper.visualize_dependency_graph('dependency_graph.png')
+            print(f'📊 Graph visualization saved to: {graph_path}')
+        except Exception as e:
+            print(f'⚠️ Graph visualization failed: {e}')
+
+        # Wait for next analysis cycle
+        time.sleep(3600)  # Analyze every hour
+
+    except KeyboardInterrupt:
+        print('👋 Graph analysis service stopped')
+        break
+    except Exception as e:
+        print(f'❌ Analysis error: {e}')
+        time.sleep(300)  # Wait 5 minutes before retrying
+"
+    environment:
+      - DEEP_GRAPH_PROJECT_ID=${DEEP_GRAPH_PROJECT_ID}
+      - DEEP_GRAPH_API_KEY=${DEEP_GRAPH_API_KEY}
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - REDIS_URL=${REDIS_URL}
+    volumes:
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
 
   # Redis Cache
   redis:
     image: redis:7-alpine
-    container_name: reddit-harbor-redis
+    container_name: redditharbor-redis
     ports:
       - "6379:6379"
     volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+
+  # PostgreSQL Database (Enhanced)
+  postgres:
+    image: postgres:15-alpine
+    container_name: redditharbor-postgres
+    environment:
+      - POSTGRES_DB=redditharbor
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Monitoring Stack
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: redditharbor-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: redditharbor-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      - prometheus
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+
+  # Elasticsearch for Log Storage
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
+    container_name: redditharbor-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - xpack.security.enabled=false
+      - xpack.security.enrollment.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+      - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Kibana for Log Visualization
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.8.0
+    container_name: redditharbor-kibana
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    volumes:
+      - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+    depends_on:
+      - elasticsearch
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+
+  # Logstash for Log Processing
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.8.0
+    container_name: redditharbor-logstash
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logs:/var/log/app
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    depends_on:
+      - elasticsearch
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+
+  # Jaeger for Distributed Tracing
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: redditharbor-jaeger
+    ports:
+      - "16686:16686"
+      - "16687:16687"
+      - "14268:14268"
+      - "14250:14250"
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=9411
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+
+  # Worker Processes
+  worker:
+    build: .
+    container_name: redditharbor-worker
+    command: python scripts/worker.py
+    environment:
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - REDIS_URL=${REDIS_URL}
+      - WORKER_TYPE=background
+      - DEEP_GRAPH_PROJECT_ID=${DEEP_GRAPH_PROJECT_ID}
+      - DEEP_GRAPH_API_KEY=${DEEP_GRAPH_API_KEY}
+    volumes:
+      - ./logs:/app/logs
+      - ./backups:/app/backups
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+    deploy:
+      replicas: 2
+
+  # Scheduler for Automated Tasks
+  scheduler:
+    build: .
+    container_name: redditharbor-scheduler
+    command: python scripts/scheduler.py
+    environment:
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - REDIS_URL=${REDIS_URL}
+      - SCHEDULE_INTERVAL=3600
+      - DEEP_GRAPH_PROJECT_ID=${DEEP_GRAPH_PROJECT_ID}
+      - DEEP_GRAPH_API_KEY=${DEEP_GRAPH_API_KEY}
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - redditharbor-network
+    restart: unless-stopped
+
+# Networks
+networks:
+  redditharbor-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Volumes
+volumes:
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  elasticsearch_data:
+    driver: local
       - redis_data:/data
     networks:
       - reddit-harbor-network
